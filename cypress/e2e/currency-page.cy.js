@@ -29,7 +29,7 @@ describe('Automatizando  ', () => {
     cy.get('button').should('have.attr', 'id', 'converter-Button').click(); //verificando se o botão de conversão está visível
   });
 
-  it.only('03-Converter de Euro para Reais', () => {
+  it('03-Converter de Euro para Reais', () => {
     //Fazendo asserção para verificar a primeira label
     cy.get('label')
       .eq(0)
@@ -55,7 +55,7 @@ describe('Automatizando  ', () => {
     cy.get('button').should('have.attr', 'id', 'converter-Button').click(); //verificando se o botão de
   });
 
-  it.only('04-Converter de Bitcoin para Reais', () => {
+  it('04-Converter de Bitcoin para Reais', () => {
     //Fazendo asserção para verificar a primeira label
     cy.get('label')
       .eq(0)
