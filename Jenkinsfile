@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Clonar Repositório') {
             steps {
-                git branch: 'main', url: 'https://github.com/lucasoliveiraDEV22/Currency-Test.git'
+                git branch: 'master', url: 'https://github.com/lucasoliveiraDEV22/Currency-Test.git'
             }
         }
 
