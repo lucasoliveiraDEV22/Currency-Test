@@ -15,7 +15,7 @@ pipeline {
         stage('Instalar Dependências') {
             steps {
                 script {
-                    nodejs(nodeJSInstallationName: 'node-14') {
+                    nodejs(nodeJSInstallationName: 'node-22.15') {
                         sh 'npm install' // Instala as dependências do Node.js
                     }
                 }
@@ -25,7 +25,7 @@ pipeline {
         stage('Rodar Testes Cypress') {
             steps {
                 script {
-                    nodejs(nodeJSInstallationName: 'node-14') {
+                    nodejs(nodeJSInstallationName: 'node-22.15') {
                         sh 'npx cypress run --headless' // Executa os testes do Cypress
                     }
                 }
