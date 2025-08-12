@@ -16,7 +16,7 @@ pipeline {
             steps {
                 script {
                     nodejs(nodeJSInstallationName: 'node-22.15') {
-                        sh 'npm install' // Instala as dependências do Node.js
+                        bat 'npm install' // Instala as dependências do Node.js
                     }
                 }
             }
@@ -26,7 +26,7 @@ pipeline {
             steps {
                 script {
                     nodejs(nodeJSInstallationName: 'node-22.15') {
-                        sh 'npx cypress run --headless' // Executa os testes do Cypress
+                        bat 'npx cypress run --headless' // Executa os testes do Cypress
                     }
                 }
             }
