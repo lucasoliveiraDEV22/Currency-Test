@@ -22,11 +22,11 @@ pipeline {
             }
         }
 
-        stage('Rodar Testes Cypress') {
+        stage('Mostrar a Execução dos Testes'){
             steps {
                 script {
                     nodejs(nodeJSInstallationName: 'node-22.15') {
-                        bat 'npx cypress run --headless' // Executa os testes do Cypress
+                        bat 'npx cypress run --spec cypress/e2e/curency-page.cy.js --browser chrome' // Executa os testes do Cypress
                     }
                 }
             }
