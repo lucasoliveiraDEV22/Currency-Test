@@ -21,12 +21,21 @@ pipeline {
                 }
             }
         }
-
-        stage('Mostrar a Execução dos Testes'){
+        stage('Configurar Cypress') {
             steps {
                 script {
                     nodejs(nodeJSInstallationName: 'node-22.15') {
-                        bat 'npx cypress run --spec cypress/e2e/curency-page.cy.js --browser chrome' // Executa os testes do Cypress
+                        bat 'npx cypress install' // Instala o Cypress
+                    }
+                }
+            }
+        }
+
+        stage('Rodar Testes Cypress') {
+            steps {
+                script {
+                    nodejs(nodeJSInstallationName: 'node-22.15') {
+                        bat 'npx cypress run --headless' // Executa os testes do Cypress
                     }
                 }
             }
@@ -34,7 +43,7 @@ pipeline {
 
         stage('Archivar Relatório de Testes') {
             steps {
-                archiveArtifacts artifacts: '**/mochawesome-report/**', allowEmptyArchive: true
+                 archiveArtifacts artifacts: 'cypress/videos/**/*.mp4, cypress/screenshots/**/*.png', allowEmptyArchive: true
             }
         }
     }
