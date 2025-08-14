@@ -43,12 +43,6 @@ pipeline {
                 }
             }
 
-
-        stage('Archivar Relatório de Testes') {
-            steps {
-                 archiveArtifacts artifacts: 'cypress/videos/**/*.mp4, cypress/screenshots/**/*.png', allowEmptyArchive: true
-            }
-        }
     }
 
     post {
