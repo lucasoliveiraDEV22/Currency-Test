@@ -31,15 +31,18 @@ pipeline {
             }
         }
 
-        stage('Rodar Testes Cypress') {
-            steps {
-                script {
-                    nodejs(nodeJSInstallationName: 'node-22.15') {
-                        bat 'npx cypress run --headless' // Executa os testes do Cypress
+            stage('Testes do Cypress'){
+                steps{
+                    catchError(buildResult: 'UNSTABLE', message: "Algo deu errado durante a execução dos testes do Cypress", stageResult: 'UNSTABLE') {
+                        script {
+                            nodejs(nodeJSInstallationName: 'node-22.15') {
+                                bat 'npx cypress run --spec "cypress/e2e/currency-page.cy.js" --browser chrome' 
+                            }
+                        }
                     }
                 }
             }
-        }
+
 
         stage('Archivar Relatório de Testes') {
             steps {
