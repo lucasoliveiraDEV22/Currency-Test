@@ -1,7 +1,7 @@
 describe('Automatizando  ', () => {
   beforeEach(() => {
     Cypress.config('defaultCommandTimeout', 10000); // 3 segundos por comando (em vez de 4ms padrão)
-    cy.viewport(1200, 720);
+    cy.viewport(1280, 720);
     cy.visit('/');
     // cy.wait('@resource').its('response.statusCode').should('eq', 304); //esperando a requisição ser concluída
   });

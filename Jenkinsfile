@@ -1,5 +1,8 @@
 pipeline {
     agent any
+   options {
+        ansiColor('xterm') // apenas para cores no log
+    }
 
     environment {
         CYPRESS_CACHE_FOLDER = "${WORKSPACE}/.cache/Cypress"
