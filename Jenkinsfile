@@ -1,5 +1,7 @@
 pipeline {
     agent any
+
+    
    options {
         ansiColor('xterm') // apenas para cores no log
     }
